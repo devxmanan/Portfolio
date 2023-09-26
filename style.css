@@ -152,7 +152,7 @@
           padding: 30px 0px;
       }
       .home::before {
-        background: url(/portfolio/images/home-bg.avif) no-repeat center
+        background: url(images/home-bg.avif) no-repeat center
         center/cover;
         content: "";
         position: absolute;

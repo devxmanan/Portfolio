@@ -171,6 +171,17 @@
           justify-content: center;
           padding-left: 40px;
       }
+      .animate{
+        animation: animate-name 0.7s 0.3s;
+      }
+      @keyframes animate-name {
+        from{
+          font-size: xx-small;
+        }
+        to{
+          font-size: 6vw;
+        }
+      }
       #download-cv2{
           display: none;
       }
@@ -233,6 +244,8 @@
       }
       section .details img{
         width: 25vw;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px var(--colorPrimary);
       }
       .about .details{
         display: flex;
@@ -276,6 +289,18 @@
       #b6{
         width: 70%;
       }
+      #btn3{
+        width: 100%;
+        height: 6vh;
+        font-size: 3vh;
+      }
+      .projects .details{
+        /* border: 2px solid red; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
       .small-container{
         display: flex;
         flex-direction: column;
@@ -294,6 +319,7 @@
         border: 4px solid var(--img-border);
         background-color: black;
         margin-bottom: 10px;
+        color: white;
       }
       .small-container:hover{
         transform: translateY(-8px);
@@ -376,14 +402,22 @@
             padding: 0px;
             width: 90vw;
           }
+          .animate{
+            animation: animate-name 0.7s 0.3s;
+          }
+          @keyframes animate-name {
+            from{
+              font-size: xx-small;
+            }
+            to{
+              font-size: 12vw;
+            }
+          }
           .home{
               flex-direction: column;
               text-align: center;
               align-items: center;
               font-size: 6vw;
-          }
-          .home::before {
-            height: 110%;
           }
           .home .dp{
             height: 80vw;

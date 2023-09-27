@@ -19,6 +19,10 @@
       body{
           font-family: 'Rubik', sans-serif;
       }
+      ::selection{
+        background-color: var(--colorPrimary);
+        color: var(--colorLight);
+      }
       header{
           display: flex;
           align-items: center;
@@ -273,21 +277,75 @@
       }
       #b1{
         width: 70%;
+        animation: animate-bar1 0.7s 0.2s;
       }
       #b2{
         width: 75%;
+        animation: animate-bar2 0.7s 0.2s;
       }
       #b3{
         width: 60%;
+        animation: animate-bar3 0.7s 0.2s;
       }
       #b4{
         width: 80%;
+        animation: animate-bar4 0.7s 0.2s;
       }
       #b5{
         width: 75%;
+        animation: animate-bar5 0.7s 0.2s;
       }
       #b6{
         width: 70%;
+        animation: animate-bar6 0.7s 0.2s;
+      }
+      @keyframes animate-bar1{
+        from{
+          width: 0%;
+        }
+        to{
+          width: 70%
+        }
+      }
+      @keyframes animate-bar2{
+        from{
+          width: 0%;
+        }
+        to{
+          width: 75%
+        }
+      }
+      @keyframes animate-bar3{
+        from{
+          width: 0%;
+        }
+        to{
+          width: 60%
+        }
+      }
+      @keyframes animate-bar4{
+        from{
+          width: 0%;
+        }
+        to{
+          width: 80%
+        }
+      }
+      @keyframes animate-bar5{
+        from{
+          width: 0%;
+        }
+        to{
+          width: 75%
+        }
+      }
+      @keyframes animate-bar6{
+        from{
+          width: 0%;
+        }
+        to{
+          width: 70%
+        }
       }
       #btn3{
         width: 100%;

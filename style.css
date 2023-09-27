@@ -298,12 +298,18 @@
       #btn3 a{
         width: 100%;
       }
+      #btn4 a{
+        padding: 0px 25px;
+      }
       .projects .details{
         /* border: 2px solid red; */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+      }
+      #projects-container2 img{
+        width: 30vh;
       }
       .small-container{
         display: flex;
@@ -459,5 +465,8 @@
             background-color: unset;
             color: unset;
             --img-border: var(--colorPrimary);
+          }
+          #projects-container2{
+            flex-direction: column-reverse;
           }
       }

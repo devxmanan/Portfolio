@@ -367,7 +367,7 @@
         justify-content: center;
       }
       #projects-container2 img{
-        width: 30vh;
+        width: 15vw;
       }
       .small-container{
         display: flex;
@@ -526,5 +526,8 @@
           }
           #projects-container2{
             flex-direction: column-reverse;
+          }
+          #projects-container2 img{
+            width: 30vw;
           }
       }

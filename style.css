@@ -3,10 +3,11 @@
 
       :root{
           --colorPrimary: #651FFF;
-          --colorControl: #311B92;
+          --colorControl: #453fff;
           --colorControlHover: #ddd9ee;
           --colorLight: #EDE7F6;
           --img-border: var(--colorPrimary);
+          --link-color: white;
       }
       *{
           margin: 0px;
@@ -36,6 +37,7 @@
       }
       .btn a{
           font-family: 'Carter One' , sans-serif;
+          text-decoration: none;
       }
       .logo a{
           display: flex;
@@ -119,6 +121,25 @@
           border-radius: 5px;
       }
       .btn{
+        background-color: var(--colorPrimary);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 100px;
+        font-size: large;
+        border: 2px solid rgb(1, 70, 95);
+        cursor: pointer;
+        margin: 10px;
+        width: 50vh;
+      }
+      .btn a{
+        color: var(--link-color);
+      }
+      .btn:hover{
+        background-color: var(--colorControl);
+        border-color: var(--colorPrimary);
+        color: var(--colorPrimary);
+      }
+      .cv-btn{
           width: max-content;
           background-color: white;
           padding:3px;
@@ -127,16 +148,17 @@
           margin: 0px 5px;
           cursor: pointer;
       }
-      .btn:hover{
+      .cv-btn:hover{
           background-color: var(--colorLight);
       }
-      .btn a{
+      .cv-btn a{
           text-decoration: none;
           color: var(--colorPrimary);
       }
       #btn2{
-          font-size: 0.7em;
-          margin: 5px 0px;
+        font-size: large;
+        font-weight: bold;
+        padding: 3px 5px;
       }
       .--colorPrimary{
           color: var(--colorPrimary);
@@ -347,18 +369,6 @@
           width: 70%
         }
       }
-      #btn3, #btn4{
-        width: 100%;
-        height: 6vh;
-        font-size: 3vh;
-        display: flex;
-      }
-      #btn3 a{
-        width: 100%;
-      }
-      #btn4 a{
-        padding: 0px 25px;
-      }
       .projects .details{
         /* border: 2px solid red; */
         display: flex;
@@ -412,14 +422,21 @@
         font-family:'Rubik', sans-serif;
         font-weight: bold;
         font-size: 0.7em;
+        outline: none;
+      }
+      input:focus, textarea:focus{
+        border-color: var(--colorControl);
       }
       input[type=submit]{
         cursor: pointer;
-      }
-      input[type=submit]:hover{
         background-color: var(--colorPrimary);
         color: white;
-        border-color: black;
+        border-color: var(--colorControl);
+
+      }
+      input[type=submit]:hover{
+        background-color: var(--colorControl);
+        border-color: var(--colorPrimary)
       }
       /* footer */
       footer{
@@ -529,5 +546,11 @@
           }
           #projects-container2 img{
             width: 30vw;
+          }
+          .btn{
+            width: 50vw;
+          }
+          #btn5{
+            margin-top: 30px;
           }
       }

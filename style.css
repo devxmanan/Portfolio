@@ -129,7 +129,7 @@
         border: 2px solid rgb(1, 70, 95);
         cursor: pointer;
         margin: 10px;
-        width: 50vh;
+        width:inherit;
       }
       .btn a{
         color: var(--link-color);

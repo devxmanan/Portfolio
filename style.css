@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
       :root{
-          --colorPrimary: #651FFF;
-          --colorControl: #453fff;
-          --colorControlHover: #ddd9ee;
-          --colorLight: #EDE7F6;
+          --colorPrimary: orange;
+          --colorControl: yellowgreen;
+          --colorControlHover: #313131;
+          --colorLight: #313131;
           --img-border: var(--colorPrimary);
-          --link-color: white;
+          --link-color: #212121;
       }
       *{
           margin: 0px;
@@ -19,6 +19,9 @@
       }
       body{
           font-family: 'Rubik', sans-serif;
+        background-color:black;
+        color:white;
+      
       }
       ::selection{
         background-color: var(--colorPrimary);
@@ -32,7 +35,8 @@
           position: sticky;
           top: 0px;
           box-shadow: 5px 0px 10px var(--colorControl);
-          background-color: white;
+          ;
+        background-color: black;
           font-family: 'Carter One' , sans-serif;
       }
       .btn a{
@@ -46,7 +50,7 @@
           width: 20vw;
           padding: 0px 20px;
           text-decoration: none;
-          color: black;
+          color: white
       }
       .logo h1{
           color: var(--colorPrimary);
@@ -141,7 +145,7 @@
       }
       .cv-btn{
           width: max-content;
-          background-color: white;
+          background-color: grey;
           padding:3px;
           border: 2px solid var(--colorPrimary);
           border-radius: 5px;
@@ -247,7 +251,7 @@
         text-align: center;
         padding: 60px 0px;
         font-size: 1.5em;
-        background-color: white;
+        background-color: #111111;
         /* border: 2px solid blue; */
         }
       section .container{

@@ -11,7 +11,7 @@ if (currentTheme == "light") {
         document.getElementById("themeIcon").classList.add("fa-sun-o")
     } else {
         document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
-       
+               document.getElementById("themeIcon").classList.add("fa-moon-o")
 }
 menuline1.style.transform = "none";
 let sidebar = document.getElementById("sidebar");

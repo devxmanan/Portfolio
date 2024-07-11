@@ -51,3 +51,7 @@ document.getElementById("contactForm").addEventListener('submit', function(e){
     let subject = document.getElementById('subject').value;
     console.log(name, email, number, subject);
 })
+
+function switchTheme(){
+    document.querySelector('body').classList.toggle("dark")
+}

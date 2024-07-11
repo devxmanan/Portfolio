@@ -6,6 +6,13 @@ let currentTheme = localStorage.getItem("theme");
 window.onload = loadtheme();
 function loadtheme() {
     document.querySelector('body').classList.add(currentTheme)
+    if (currentTheme == "light") {
+        document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
+        document.getElementById("themeIcon").classList.add("fa-sun-o")
+    } else {
+        document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
+        document.getElementById("themeIcon").classList.add("fa-moon-o")
+    }
 }
 menuline1.style.transform = "none";
 let sidebar = document.getElementById("sidebar");

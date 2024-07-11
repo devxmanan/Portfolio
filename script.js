@@ -3,16 +3,9 @@ let menuline2 = document.getElementById("menuline2");
 let menuline3 = document.getElementById("menuline3");
 let menuicon = document.getElementById("menuicon");
 let currentTheme = localStorage.getItem("theme");
-window.onload = loadTheme();
-function loadTheme() {
+window.onload = loadtheme();
+function loadtheme() {
     document.querySelector('body').classList.add(currentTheme)
-if (currentTheme == "light") {
-   document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
-        document.getElementById("themeIcon").classList.add("fa-sun-o")
-    } else {
-        document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
-               document.getElementById("themeIcon").classList.add("fa-moon-o")
-}
 }
 menuline1.style.transform = "none";
 let sidebar = document.getElementById("sidebar");
@@ -68,8 +61,12 @@ function switchTheme() {
     document.querySelector('body').classList.remove("light", "dark")
     if (currentTheme == "light") {
         currentTheme = "dark"
+        document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
+        document.getElementById("themeIcon").classList.add("fa-sun-o")
     } else {
         currentTheme = "light"
+        document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
+        document.getElementById("themeIcon").classList.add("fa-moon-o")
     }
     localStorage.setItem("theme", currentTheme)
     document.querySelector('body').classList.add(currentTheme)

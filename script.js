@@ -61,8 +61,12 @@ function switchTheme() {
     document.querySelector('body').classList.remove("light", "dark")
     if (currentTheme == "light") {
         currentTheme = "dark"
+        document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
+        document.getElementById("themeIcon").classList.add("fa-sun-o")
     } else {
         currentTheme = "light"
+        document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
+        document.getElementById("themeIcon").classList.add("fa-moon-o")
     }
     localStorage.setItem("theme", currentTheme)
     document.querySelector('body').classList.add(currentTheme)

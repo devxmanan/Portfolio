@@ -8,10 +8,10 @@ function loadtheme() {
     document.querySelector('body').classList.add(currentTheme)
     if (currentTheme == "light") {
         document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
-        document.getElementById("themeIcon").classList.add("fa-sun-o")
+        document.getElementById("themeIcon").classList.add("fa-moon-o")
     } else {
         document.getElementById("themeIcon").classList.remove("fa-moon-o", "fa-sun-o");
-        document.getElementById("themeIcon").classList.add("fa-moon-o")
+        document.getElementById("themeIcon").classList.add("fa-sun-o")
     }
 }
 menuline1.style.transform = "none";

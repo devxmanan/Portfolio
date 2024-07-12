@@ -41,15 +41,6 @@ function cvBtn(){
   alert("This feature will be available soon");
 }
 
-document.getElementById("contactForm").addEventListener('submit', (e) => {
-    e.preventDefault();
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let number = document.getElementById('number').value;
-    let subject = document.getElementById('subject').value;
-    console.log(name, email, number, subject);
-})
-
 function switchTheme() {
     document.querySelector('body').classList.remove("light", "dark")
     if (currentTheme == "light") {

@@ -40,25 +40,9 @@ function toggleMenu() {
 function cvBtn(){
   alert("This feature will be available soon");
 }
-const firebaseConfig = {
-    apiKey: "AIzaSyB4EFPA7uiUm0Dt4aGUJjieRh72vFpAuQY",
-    authDomain: "manan-portfolio-2703.firebaseapp.com",
-    databaseURL: "https://manan-portfolio-2703-default-rtdb.asia-southeast1.firebasedatabase.app/",
-    projectId: "manan-portfolio-2703",
-    storageBucket: "manan-portfolio-2703.appspot.com",
-    messagingSenderId: "731134889047",
-    appId: "1:731134889047:web:fc2bdcd2dbae0ea8e86712",
-    measurementId: "G-RDFYDLG2PM"
-};
 
-firebase.initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-const contactFormDB = firebase.database().ref('contactForm');
-
-
-document.getElementById("contactForm").addEventListener('submit', function (e) {
+document.getElementById("contactForm").addEventListener('submit', (e) => {
     e.preventDefault();
-
     let name = document.getElementById('name').value;
     let email = document.getElementById('email').value;
     let number = document.getElementById('number').value;

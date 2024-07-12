@@ -585,7 +585,7 @@ button[type=submit] {
 
 }
 
-input[type=submit]:hover {
+button[type=submit]:hover {
   background-color: var(--colorControl);
   border-color: var(--colorPrimary)
 }

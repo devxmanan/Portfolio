@@ -21,7 +21,7 @@
 .dark {
   --colorPrimary: orange;
   --colorControl: yellowgreen ;
-  --colorControlHover: #2c1502;
+  --colorControlHover: rgb(213, 255, 128);
   --colorLight: #2c1400;
   --link-color: black;
   --btn-border: rgb(95, 39, 1);
@@ -43,6 +43,28 @@ body {
 ::selection {
   background-color: var(--colorPrimary);
   color: var(--colorLight);
+}
+
+
+::-webkit-scrollbar {
+  width: 7px;
+  
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  opacity: 10%;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--colorPrimary);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--colorControl);
 }
 
 header {

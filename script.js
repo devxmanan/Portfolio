@@ -37,7 +37,9 @@ function toggleMenu() {
         sidebar.style.width = "0vw";
     }
 }
-
+function cvBtn(){
+  alert("This feature will be available soon");
+}
 const firebaseConfig = {
     apiKey: "AIzaSyB4EFPA7uiUm0Dt4aGUJjieRh72vFpAuQY",
     authDomain: "manan-portfolio-2703.firebaseapp.com",

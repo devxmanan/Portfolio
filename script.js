@@ -37,9 +37,6 @@ function toggleMenu() {
         sidebar.style.width = "0vw";
     }
 }
-function cvBtn(){
-  alert("This feature will be available soon");
-}
 
 function switchTheme() {
     document.querySelector('body').classList.remove("light", "dark")

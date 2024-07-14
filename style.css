@@ -20,7 +20,7 @@
 
 .dark {
   --colorPrimary: orange;
-  --colorControl: yellowgreen ;
+  --colorControl: yellowgreen;
   --colorControlHover: rgb(213, 255, 128);
   --colorLight: #2c1400;
   --link-color: black;
@@ -45,10 +45,13 @@ body {
   color: var(--colorLight);
 }
 
+:active {
+  background-color: none;
+}
 
 ::-webkit-scrollbar {
   width: 7px;
-  
+
 }
 
 ::-webkit-scrollbar-track {
@@ -153,24 +156,31 @@ header {
   font-size: 25px;
   color: var(--colorPrimary);
 }
-.theme{
+
+.theme {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.themeBtn{
+
+.themeBtn {
   background-color: transparent;
   border: none;
   color: var(--colorPrimary);
   margin: 0px 5px;
   cursor: pointer;
+  width: 25px;
+  height: 25px;
 }
-.themeBtn:hover{
+
+.themeBtn:hover {
   transform: translateY(-2px);
 }
-.themeBtn i{
+
+.themeBtn i {
   font-size: 25px;
 }
+
 .menu-icon {
   width: 38px;
   height: 38px;
@@ -558,8 +568,9 @@ form {
 }
 
 input,
-textarea, button[type=submit] {
-  margin: 25px;
+textarea,
+button[type=submit] {
+  margin-top: 25px;
   padding: 10px;
   border: 2px solid var(--colorPrimary);
   border-bottom-left-radius: 12px 20px;
@@ -571,12 +582,18 @@ textarea, button[type=submit] {
   background-color: var(--link-color);
   color: var(--logo-color);
 }
+.error-msg{
+  display: flex;
+  padding-left: 10px;
+  font-size: small;
+  margin-top: 1px;
+  color: red;
+}
 
 input:focus,
 textarea:focus {
   border-color: var(--colorControl);
 }
-
 button[type=submit] {
   cursor: pointer;
   background-color: var(--colorPrimary);
@@ -714,7 +731,8 @@ footer {
     --img-border: var(--colorPrimary);
   }
 
-  #projects-container2 {
+  #projects-container2,
+  #projects-container3 {
     flex-direction: column-reverse;
   }
 

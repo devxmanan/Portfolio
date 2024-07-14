@@ -49,9 +49,12 @@
         <h5 class="--colorPrimary">--Let's Connect--</h5>
         <div class="container">
             <form action="https://formspree.io/f/xdknkeop" method="POST" id="contactForm">
-                <input type="text" id="name" name="name" placeholder="Enter your Name">
-                <input type="email" id="email" name="email" placeholder="Enter your Email-Id">
-                <input type="tel" id="number" name="number" placeholder="Enter your Mobile no.">
+                <input type="text" id="name" name="name" placeholder="Enter your Name" required>
+                <!-- <div class="error-msg"><p>error text</p></div> -->
+                <input type="email" id="email" name="email" placeholder="Enter your Email-Id" required>
+                <!-- <div class="error-msg"><p>error text</p></div> -->
+                <input type="tel" id="number" name="number" placeholder="Enter your Mobile no." required>
+                <!-- <div class="error-msg"><p>error text</p></div> -->
                 <textarea id="subject" name="subject" placeholder="Write your message here"
                     style="height:100px"></textarea>
                 <button type="submit">Submit</button>

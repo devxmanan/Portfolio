@@ -16,11 +16,12 @@
 * {
   margin: 0px;
   padding: 0px;
+  transition: all ease-in-out 0.2s;
 }
 
 .dark {
   --colorPrimary: orange;
-  --colorControl: yellowgreen;
+  --colorControl: rgb(255, 140, 0);
   --colorControlHover: rgb(213, 255, 128);
   --colorLight: #2c1400;
   --link-color: black;
@@ -74,7 +75,7 @@ header {
   display: flex;
   align-items: center;
   /* border: 2px solid blue; */
-  height: 8vh;
+  height: 50px;
   position: sticky;
   top: 0px;
   box-shadow: 5px 0px 10px var(--colorControl);
@@ -223,7 +224,6 @@ header {
 
 .btn:hover {
   background-color: var(--colorControl);
-  border-color: var(--colorPrimary);
   color: var(--colorPrimary);
 }
 
@@ -282,7 +282,7 @@ header {
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.7;
   filter: var(--invert);
 }
 

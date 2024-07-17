@@ -27,8 +27,6 @@
   --link-color: #222831;
   --btn-border: #35374B;
   --logo-color: white;
-  --invert: invert();
-  --sepia: sepia();
   --imgURL: url();
   background-color: black;
   color: white;

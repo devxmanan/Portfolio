@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 :root {
-  --colorPrimary: #651FFF;
-  --colorControl: #453fff;
-  --colorControlHover: #ddd9ee;
-  --colorLight: #EDE7F6;
+  --colorPrimary: #00A9FF;
+  --colorControl: #89CFF3;
+  --colorControlHover: #A0E9FF;
+  --colorLight: #CDF5FD;
   --link-color: white;
   --img-border: var(--colorPrimary);
-  --btn-border: rgb(1, 70, 95);
+  --btn-border: rgb(47, 157, 197);
   --logo-color: black;
-  --imgURL: url(images/home-bg.avif);
+  --imgURL: url();
 }
 
 * {
@@ -20,16 +20,16 @@
 }
 
 .dark {
-  --colorPrimary: orange;
-  --colorControl: rgb(255, 140, 0);
+  --colorPrimary: #76ABAE;
+  --colorControl: #EEEEEE;
   --colorControlHover: rgb(213, 255, 128);
-  --colorLight: #2c1400;
-  --link-color: black;
-  --btn-border: rgb(95, 39, 1);
+  --colorLight: #31363F;
+  --link-color: #222831;
+  --btn-border: #35374B;
   --logo-color: white;
   --invert: invert();
   --sepia: sepia();
-  --imgURL: url(images/home-bg-dark.png);
+  --imgURL: url();
   background-color: black;
   color: white;
 }
@@ -44,7 +44,7 @@ body {
 
 ::selection {
   background-color: var(--colorPrimary);
-  color: var(--colorLight);
+  color: var(--link-color);
 }
 
 :active {
@@ -275,13 +275,16 @@ header {
   font-size: 3vw;
   z-index: -1;
   padding: 30px 0px;
+  height: calc(100vh - 110px);
+  justify-content: center;
+  align-items: center;
 }
 
 
 
 .myinfo {
   /* border: 2px solid red; */
-  width: 50vw;
+  width: 55vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -306,37 +309,18 @@ header {
   display: none;
 }
 
-/* .frame{
-        width: 30vw;
-        height: 30vw;
-        position: absolute;
-        top: 14vw;
-        right: 10vw;
-        border: 5px solid var(--colorPrimary);
-        background-color: var(--colorPrimary);
-        z-index: -2;
-        border-radius: 200px;
-      }
-      .frame-black{
-        width: 30vw;
-        height: 30vw;
-        position: absolute;
-        top: 15vw;
-        right: 11vw;
-        z-index: -1;
-        border: 5px solid black;
-        border-radius: 200px;
-      } */
 .dp {
-  width: 40vw;
-  /* border: 5px solid black; */
+  width: 30vw;
+  height: 35.5vw;
   display: flex;
   align-items: center;
+  background-color: var(--colorPrimary);
+  border-radius: 71% 29% 35% 65% / 75% 39% 61% 25% ;
 }
 
 .dp img {
-  width: 40vw;
-  filter: var(--sepia);
+  width: 30vw;
+  border-radius: 0% 0% 35% 65% / 75% 39% 61% 25% ;
 }
 
 /* skills section*/
@@ -374,7 +358,6 @@ section .details img {
   border-radius: 10px;
   box-shadow: 2px 2px 10px var(--colorPrimary);
 }
-
 .about .details {
   display: flex;
   justify-content: center;
@@ -596,7 +579,8 @@ button[type=submit] {
 
 button[type=submit]:hover {
   background-color: var(--colorControl);
-  border-color: var(--colorPrimary)
+  border-color: var(--colorPrimary);
+  color: var(--link-color)
 }
 
 /* footer */
@@ -678,12 +662,13 @@ footer {
   }
 
   .home .dp {
-    height: 80vw;
-    width: 80vw;
+    height: 83vw;
+    width: 70vw;
+    margin: 30px 0px;
   }
 
   .home .dp img {
-    width: 80vw;
+    width: 70vw;
   }
 
   section .container {

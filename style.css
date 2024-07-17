@@ -10,7 +10,7 @@
   --img-border: var(--colorPrimary);
   --btn-border: rgb(47, 157, 197);
   --logo-color: black;
-  --imgURL: url();
+  --imgURL: url(images/portfolio-preview.png);
 }
 
 * {
@@ -27,7 +27,7 @@
   --link-color: #222831;
   --btn-border: #35374B;
   --logo-color: white;
-  --imgURL: url();
+  --imgURL: url(images/portfolio-preview-dark.png);
   background-color: black;
   color: white;
 }
@@ -269,7 +269,6 @@ header {
 
 .home {
   display: flex;
-  background: var(--imgURL) no-repeat center center/cover;
   font-size: 3vw;
   z-index: -1;
   padding: 30px 0px;
@@ -287,7 +286,7 @@ header {
   flex-direction: column;
   justify-content: center;
   padding-left: 40px;
-  text-align: center;
+  text-align: justify;
 }
 
 .animate {
@@ -499,7 +498,9 @@ section .details img {
   align-items: center;
   justify-content: center;
 }
-
+.portfolio-preview{
+  content: var(--imgURL);
+}
 #projects-container2 img {
   width: 15vw;
 }
@@ -638,6 +639,7 @@ footer {
   .myinfo {
     padding: 0px;
     width: 90vw;
+    text-align: center;
   }
 
   .animate {
@@ -678,7 +680,9 @@ footer {
 
   section .info {
     width: 80vw;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   section .details {

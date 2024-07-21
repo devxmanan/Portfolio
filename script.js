@@ -42,10 +42,9 @@ auth.onAuthStateChanged(function (user) {
             }
     })
     .catch((error) => {
-        console.error("Error reading user data:", error);
+        console.log("Error reading user data:", error);
     });
     } else {
-        console.log("User not signed in");
         const navItem = document.getElementById("checkUser")
         const a = document.createElement('a');
         a.href = 'login.html';
@@ -61,7 +60,6 @@ function register(event) {
     let name = document.getElementById("name").value
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
-    console.log(name, email, password);
     auth.createUserWithEmailAndPassword(email, password)
         .then(function () {
             var user = auth.currentUser
@@ -75,11 +73,8 @@ function register(event) {
             alert("User Created Successfully!")
 
             const usersRef = database.ref("users");
-
-            // Save user data using set()
             usersRef.child(user.uid).set(user_data)
                 .then(() => {
-                    alert("Data saved successfully!");
                     window.location.replace("account.html");
                 })
                 .catch((error) => {
@@ -106,10 +101,8 @@ function login(event) {
 
             const usersRef = database.ref("users");
 
-            // Save user data using set()
             usersRef.child(user.uid).update(user_data)
                 .then(() => {
-                    alert("Data updated successfully!");
                     window.location.replace("account.html");
                 })
                 .catch((error) => {
@@ -123,7 +116,6 @@ function login(event) {
 function logout(event){
     event.preventDefault()
     auth.signOut().then(() => {
-        alert("User signed out successfully!");
         window.location.replace("login.html");
     }).catch((error) => {
         alert(`Error signing out: ${error.message}`);

@@ -24,6 +24,26 @@ auth.onAuthStateChanged(function (user) {
         a.innerText = "Account";
         navItem.innerHTML = ""
         navItem.appendChild(a);
+        const usersRef = database.ref("users");
+        const userId = user.uid;
+        usersRef.child(userId).once("value")
+            .then((snapshot) => {
+            const userData = snapshot.val();
+            if (userData) {
+                document.getElementById("account-username").innerHTML= userData.name
+            document.getElementById("account-email").innerHTML += userData.email
+            document.getElementById("account-uid").innerHTML += user.uid
+            let d = new Date(userData.account_created)
+            document.getElementById("account-created").innerHTML += d.toString()
+            d= new Date(userData.last_login)
+            document.getElementById("account-lastLogin").innerHTML += d.toString()
+             } else {
+            console.log("User not found.");
+            }
+    })
+    .catch((error) => {
+        console.error("Error reading user data:", error);
+    });
     } else {
         console.log("User not signed in");
         const navItem = document.getElementById("checkUser")
@@ -60,6 +80,7 @@ function register(event) {
             usersRef.child(user.uid).set(user_data)
                 .then(() => {
                     alert("Data saved successfully!");
+                    window.location.replace("account.html");
                 })
                 .catch((error) => {
                     alert(`Error saving data: ${error.message}`)
@@ -89,6 +110,7 @@ function login(event) {
             usersRef.child(user.uid).update(user_data)
                 .then(() => {
                     alert("Data updated successfully!");
+                    window.location.replace("account.html");
                 })
                 .catch((error) => {
                     alert(`Error updating data: ${error.message}`)
@@ -98,7 +120,15 @@ function login(event) {
             alert(`Error - ${error.message}`)
         });
 }
-
+function logout(event){
+    event.preventDefault()
+    auth.signOut().then(() => {
+        alert("User signed out successfully!");
+        window.location.replace("login.html");
+    }).catch((error) => {
+        alert(`Error signing out: ${error.message}`);
+    });
+}
 
 //ON LOAD FUNCTION
 let currentTheme = localStorage.getItem("theme");

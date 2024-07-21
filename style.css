@@ -743,7 +743,7 @@ footer {
   #btn5 {
     margin-top: 30px;
   }
-  .signup, .login, .Contact{
+  .signup, .login, .Contact, .account{
     display: flex;
     flex-direction: column;
     height: calc(100vh - 249px);

@@ -15,22 +15,22 @@ const auth = firebase.auth()
 const database = firebase.database()
 
 auth.onAuthStateChanged(function (user) {
+
     if (user) {
-        // User is signed in.
         console.log("User signed in:", user.uid);
         const navItem = document.getElementById("checkUser")
         const a = document.createElement('a');
         a.href = 'account.html';
         a.innerText = "Account";
+        navItem.innerHTML = ""
         navItem.appendChild(a);
-        // Do something with the user information.
     } else {
-        // No user is signed in.
         console.log("User not signed in");
         const navItem = document.getElementById("checkUser")
         const a = document.createElement('a');
         a.href = 'login.html';
         a.innerText = "Login";
+        navItem.innerHTML = ""
         navItem.appendChild(a);
     }
 });

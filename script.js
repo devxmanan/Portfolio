@@ -13,7 +13,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth()
 const database = firebase.database()
-
+var loading = true;
 auth.onAuthStateChanged(function (user) {
 
     if (user) {
@@ -24,6 +24,10 @@ auth.onAuthStateChanged(function (user) {
         a.innerText = "Account";
         navItem.innerHTML = ""
         navItem.appendChild(a);
+        loading = false
+        console.log(window.location.pathname);
+        if(window.location.pathname==='/account.html'){
+            loading= true
         const usersRef = database.ref("users");
         const userId = user.uid;
         usersRef.child(userId).once("value")
@@ -44,6 +48,8 @@ auth.onAuthStateChanged(function (user) {
             .catch((error) => {
                 console.log("Error reading user data:", error);
             });
+            loading=false
+        }
     } else {
         const navItem = document.getElementById("checkUser")
         const a = document.createElement('a');
@@ -51,12 +57,14 @@ auth.onAuthStateChanged(function (user) {
         a.innerText = "Login";
         navItem.innerHTML = ""
         navItem.appendChild(a);
+        loading = false
     }
 });
 
 
 function register(event) {
     event.preventDefault()
+    loading = true
     let name = document.getElementById("name").value
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
@@ -70,25 +78,28 @@ function register(event) {
                 account_created: Date.now(),
                 last_login: Date.now()
             }
-            alert("User Created Successfully!")
 
             const usersRef = database.ref("users");
             usersRef.child(user.uid).set(user_data)
                 .then(() => {
+                    loading = false
                     window.location.replace("account.html");
                 })
                 .catch((error) => {
                     alert(`Error saving data: ${error.message}`)
+                    loading = false
                 });
         })
         .catch(function (error) {
             alert(`Error - ${error.message} Try Logging in instead`)
+            loading = false
         });
 }
 
 
 function login(event) {
     event.preventDefault()
+    loading = true
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
     auth.signInWithEmailAndPassword(email, password)
@@ -97,27 +108,32 @@ function login(event) {
             var user_data = {
                 last_login: Date.now()
             }
-            alert("User Logged in successfully!")
 
             const usersRef = database.ref("users");
 
             usersRef.child(user.uid).update(user_data)
                 .then(() => {
+                    loading = false
                     window.location.replace("account.html");
                 })
                 .catch((error) => {
+                    loading = false
                     alert(`Error updating data: ${error.message}`)
                 });
         })
         .catch(function (error) {
+            loading = false
             alert(`Error - ${error.message}`)
         });
 }
 function logout(event) {
     event.preventDefault()
+    loading = true
     auth.signOut().then(() => {
+        loading = false
         window.location.replace("login.html");
     }).catch((error) => {
+        loading = false
         alert(`Error signing out: ${error.message}`);
     });
 }
@@ -136,18 +152,26 @@ function load() {
         document.getElementById("themeIcon").classList.add("fa-sun-o")
     }
 }
+//LOADING
+setInterval(function () {
+    if (loading === true) {
+        document.getElementById('loader').classList.add('loader-active')
+    } else {
+        document.getElementById('loader').classList.remove('loader-active')
+    }
+}, 100)
 
 //HAMBURGER AND THEME
 let navbarOpen = false
 function toggleMenu() {
-    if (!navbarOpen){
-        navbarOpen= true
+    if (!navbarOpen) {
+        navbarOpen = true
         document.getElementById('sidebar').classList.add('sidebar-open')
         document.getElementById('menuline1').classList.add('menuline-1-open')
         document.getElementById('menuline2').classList.add('menuline-2-open')
         document.getElementById('menuline3').classList.add('menuline-3-open')
     } else {
-        navbarOpen= false
+        navbarOpen = false
         document.getElementById('sidebar').classList.remove('sidebar-open')
         document.getElementById('menuline1').classList.remove('menuline-1-open')
         document.getElementById('menuline2').classList.remove('menuline-2-open')

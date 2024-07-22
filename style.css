@@ -626,7 +626,21 @@ button[type=submit]:hover {
   border-color: var(--colorPrimary);
   color: var(--link-color)
 }
-
+.passAndRefresh{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0px;
+  padding: 0px 8px;
+  align-items: center;
+}
+.ref{
+  font-size: medium;
+  cursor: pointer;
+  display: none;
+}
+.refvisible{
+  display: block;
+}
 #forgetpass {
   color: red;
   font-size: small;

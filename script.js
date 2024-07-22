@@ -145,11 +145,17 @@ function forgetPass() {
     auth.sendPasswordResetEmail(email).then(() => {
         loading = false
         document.getElementById('forgetpass').innerHTML = `A Password Reset link has been sent to the above email.`
+        document.getElementById('ref').classList.add('refvisible')
 
     }).catch((error) => {
         loading = false
-        document.getElementById('forgetpass').innerHTML = `Please provide valid email.\nError: ${error.message}.Please, Refresh the page`
+        document.getElementById('forgetpass').innerHTML = `Please provide valid email.\nError: ${error.message}.`
+        document.getElementById('ref').classList.add('refvisible')
     })
+}
+function refClick(){
+    document.getElementById('forgetpass').innerHTML = "Forgot Password?"
+    document.getElementById('ref').classList.remove('refvisible')
 }
 //ON LOAD FUNCTION
 let currentTheme = localStorage.getItem("theme");

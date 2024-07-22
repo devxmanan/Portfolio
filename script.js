@@ -26,31 +26,31 @@ auth.onAuthStateChanged(function (user) {
         navItem.appendChild(a);
         loading = false
         console.log(window.location.pathname);
-        if(window.location.pathname==='/account.html'){
-            loading= true
-        const usersRef = database.ref("users");
-        const userId = user.uid;
-        usersRef.child(userId).once("value")
-            .then((snapshot) => {
-                const userData = snapshot.val();
-                if (userData) {
-                    document.getElementById("account-username").innerHTML = userData.name
-                    document.getElementById("account-email").innerHTML += userData.email
-                    document.getElementById("account-uid").innerHTML += user.uid
-                    let d = new Date(userData.account_created)
-                    document.getElementById("account-created").innerHTML += d.toString()
-                    d = new Date(userData.last_login)
-                    document.getElementById("account-lastLogin").innerHTML += d.toString()
-                    loading=false
-                } else {
-                    console.log("User not found.");
-                    loading=false
-                }
-            })
-            .catch((error) => {
-                console.log("Error reading user data:", error);
-                loading=false
-            });
+        if (window.location.pathname === '/account.html') {
+            loading = true
+            const usersRef = database.ref("users");
+            const userId = user.uid;
+            usersRef.child(userId).once("value")
+                .then((snapshot) => {
+                    const userData = snapshot.val();
+                    if (userData) {
+                        document.getElementById("account-username").innerHTML = userData.name
+                        document.getElementById("account-email").innerHTML += userData.email
+                        document.getElementById("account-uid").innerHTML += user.uid
+                        let d = new Date(userData.account_created)
+                        document.getElementById("account-created").innerHTML += d.toString()
+                        d = new Date(userData.last_login)
+                        document.getElementById("account-lastLogin").innerHTML += d.toString()
+                        loading = false
+                    } else {
+                        console.log("User not found.");
+                        loading = false
+                    }
+                })
+                .catch((error) => {
+                    console.log("Error reading user data:", error);
+                    loading = false
+                });
         }
     } else {
         const navItem = document.getElementById("checkUser")
@@ -139,7 +139,18 @@ function logout(event) {
         alert(`Error signing out: ${error.message}`);
     });
 }
+function forgetPass() {
+    loading = true
+    let email = document.getElementById("email").value
+    auth.sendPasswordResetEmail(email).then(() => {
+        loading = false
+        document.getElementById('forgetpass').innerHTML = `A Password Reset link has been sent to the above email.`
 
+    }).catch((error) => {
+        loading = false
+        document.getElementById('forgetpass').innerHTML = `Please provide valid email.\nError: ${error.message}.Please, Refresh the page`
+    })
+}
 //ON LOAD FUNCTION
 let currentTheme = localStorage.getItem("theme");
 

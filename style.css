@@ -627,12 +627,13 @@ button[type=submit]:hover {
   color: var(--link-color)
 }
 
-.forgetpass {
+#forgetpass {
   color: red;
   font-size: small;
   margin-top: 5px;
   text-align: left;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .signupBtn,

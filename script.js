@@ -28,22 +28,22 @@ auth.onAuthStateChanged(function (user) {
         const userId = user.uid;
         usersRef.child(userId).once("value")
             .then((snapshot) => {
-            const userData = snapshot.val();
-            if (userData) {
-                document.getElementById("account-username").innerHTML= userData.name
-            document.getElementById("account-email").innerHTML += userData.email
-            document.getElementById("account-uid").innerHTML += user.uid
-            let d = new Date(userData.account_created)
-            document.getElementById("account-created").innerHTML += d.toString()
-            d= new Date(userData.last_login)
-            document.getElementById("account-lastLogin").innerHTML += d.toString()
-             } else {
-            console.log("User not found.");
-            }
-    })
-    .catch((error) => {
-        console.log("Error reading user data:", error);
-    });
+                const userData = snapshot.val();
+                if (userData) {
+                    document.getElementById("account-username").innerHTML = userData.name
+                    document.getElementById("account-email").innerHTML += userData.email
+                    document.getElementById("account-uid").innerHTML += user.uid
+                    let d = new Date(userData.account_created)
+                    document.getElementById("account-created").innerHTML += d.toString()
+                    d = new Date(userData.last_login)
+                    document.getElementById("account-lastLogin").innerHTML += d.toString()
+                } else {
+                    console.log("User not found.");
+                }
+            })
+            .catch((error) => {
+                console.log("Error reading user data:", error);
+            });
     } else {
         const navItem = document.getElementById("checkUser")
         const a = document.createElement('a');
@@ -113,7 +113,7 @@ function login(event) {
             alert(`Error - ${error.message}`)
         });
 }
-function logout(event){
+function logout(event) {
     event.preventDefault()
     auth.signOut().then(() => {
         window.location.replace("login.html");
@@ -138,33 +138,20 @@ function load() {
 }
 
 //HAMBURGER AND THEME
-let menuline1 = document.getElementById("menuline1");
-let menuline2 = document.getElementById("menuline2");
-let menuline3 = document.getElementById("menuline3");
-let menuicon = document.getElementById("menuicon");
-
-
-menuline1.style.transform = "none";
-let sidebar = document.getElementById("sidebar");
+let navbarOpen = false
 function toggleMenu() {
-    if (menuline1.style.transform == "none") {
-        menuline1.style.position = "relative";
-        menuline1.style.top = "7px";
-        menuline1.style.transform = "rotate(45deg)";
-        menuline2.style.transform = "rotateY(90deg)";
-        menuline3.style.transform = "rotate(-45deg)";
-        menuline3.style.position = "relative";
-        menuline3.style.bottom = "7px";
-        sidebar.style.width = "50vw";
-
-    }
-    else {
-        menuline1.style.transform = "none";
-        menuline2.style.transform = "none";
-        menuline3.style.transform = "none";
-        menuline1.style.position = "sticky";
-        menuline3.style.position = "sticky";
-        sidebar.style.width = "0vw";
+    if (!navbarOpen){
+        navbarOpen= true
+        document.getElementById('sidebar').classList.add('sidebar-open')
+        document.getElementById('menuline1').classList.add('menuline-1-open')
+        document.getElementById('menuline2').classList.add('menuline-2-open')
+        document.getElementById('menuline3').classList.add('menuline-3-open')
+    } else {
+        navbarOpen= false
+        document.getElementById('sidebar').classList.remove('sidebar-open')
+        document.getElementById('menuline1').classList.remove('menuline-1-open')
+        document.getElementById('menuline2').classList.remove('menuline-2-open')
+        document.getElementById('menuline3').classList.remove('menuline-3-open')
     }
 }
 

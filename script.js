@@ -41,14 +41,16 @@ auth.onAuthStateChanged(function (user) {
                     document.getElementById("account-created").innerHTML += d.toString()
                     d = new Date(userData.last_login)
                     document.getElementById("account-lastLogin").innerHTML += d.toString()
+                    loading=false
                 } else {
                     console.log("User not found.");
+                    loading=false
                 }
             })
             .catch((error) => {
                 console.log("Error reading user data:", error);
+                loading=false
             });
-            loading=false
         }
     } else {
         const navItem = document.getElementById("checkUser")

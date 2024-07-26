@@ -120,7 +120,7 @@ function login(event) {
                 if (!localUser.last_login) {
                     usersRef.child(user.uid).set(localUser)
                         .then(() => {
-                            localStorage.removeItem('localUser')
+                            localStorage.removeItem('user_data')
                         })
                         .catch((error) => {
                             alert(`Error saving data: ${error.message}`)

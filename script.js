@@ -17,7 +17,6 @@ var loading = true;
 auth.onAuthStateChanged(function (user) {
 
     if (user) {
-        console.log("User signed in:", user.uid);
         const navItem = document.getElementById("checkUser")
         const a = document.createElement('a');
         a.href = 'account.html';
@@ -25,7 +24,7 @@ auth.onAuthStateChanged(function (user) {
         navItem.innerHTML = ""
         navItem.appendChild(a);
         loading = false
-        console.log(window.location.pathname);
+
         if (window.location.pathname === '/account.html') {
             loading = true
             const usersRef = database.ref("users");
@@ -41,9 +40,10 @@ auth.onAuthStateChanged(function (user) {
                         document.getElementById("account-created").innerHTML += d.toString()
                         d = new Date(userData.last_login)
                         document.getElementById("account-lastLogin").innerHTML += d.toString()
+                        document.getElementById("account-type").innerHTML += userData.account_type
                         loading = false
                     } else {
-                        console.log("User not found.");
+                        document.getElementById("account-username").innerHTML = "USER DATA NOT FOUND!"
                         loading = false
                     }
                 })
@@ -51,6 +51,8 @@ auth.onAuthStateChanged(function (user) {
                     console.log("Error reading user data:", error);
                     loading = false
                 });
+        } else {
+            document.getElementById("account-username").innerHTML = "USER DATA NOT FOUND!"
         }
     } else {
         const navItem = document.getElementById("checkUser")
@@ -72,28 +74,28 @@ function register(event) {
     let password = document.getElementById("password").value
     auth.createUserWithEmailAndPassword(email, password)
         .then(function () {
-            var user = auth.currentUser
-            var user_data = {
+
+            let localUser = {
                 email: email,
                 name: name,
                 password: password,
                 account_created: Date.now(),
-                last_login: Date.now()
+                last_login: null,
+                account_type: "user"
             }
-
-            const usersRef = database.ref("users");
-            usersRef.child(user.uid).set(user_data)
-                .then(() => {
-                    loading = false
-                    window.location.replace("account.html");
-                })
-                .catch((error) => {
-                    alert(`Error saving data: ${error.message}`)
-                    loading = false
-                });
+            let user = auth.currentUser;
+            localStorage.setItem("user_data", JSON.stringify(localUser))
+            user.sendEmailVerification();
+            alert("Email verification has been sent!. Please verify.")
+            loading = false
+            auth.signOut().then(() => {
+                window.location.replace("login.html");
+            }).catch((error) => {
+                alert(`Error signing out: ${error.message}`);
+            });
         })
         .catch(function (error) {
-            alert(`Error - ${error.message} Try Logging in instead`)
+            alert(`Error - ${error.message}`)
             loading = false
         });
 }
@@ -104,24 +106,44 @@ function login(event) {
     loading = true
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
+    let localUser = JSON.parse(localStorage.getItem("user_data"))
+    if (!localUser) {
+        localUser = {
+            last_login: true
+        }
+    }
     auth.signInWithEmailAndPassword(email, password)
         .then(function () {
-            var user = auth.currentUser
-            var user_data = {
-                last_login: Date.now()
+            let user = auth.currentUser
+            if (user.emailVerified) {
+                const usersRef = database.ref("users");
+                if (!localUser.last_login) {
+                    usersRef.child(user.uid).set(localUser)
+                        .then(() => {
+                            localStorage.removeItem('localUser')
+                        })
+                        .catch((error) => {
+                            alert(`Error saving data: ${error.message}`)
+                        });
+                }
+
+                localUser = {
+                    last_login: Date.now()
+                }
+                usersRef.child(user.uid).update(localUser)
+                    .then(() => {
+                        loading = false
+                        window.location.replace("account.html");
+                    })
+                    .catch((error) => {
+                        loading = false
+                        alert(`Error updating data: ${error.message}`)
+                    });
+            } else {
+                auth.signOut()
+                loading = false
+                alert("Your email is not verified. Please verify your email first!")
             }
-
-            const usersRef = database.ref("users");
-
-            usersRef.child(user.uid).update(user_data)
-                .then(() => {
-                    loading = false
-                    window.location.replace("account.html");
-                })
-                .catch((error) => {
-                    loading = false
-                    alert(`Error updating data: ${error.message}`)
-                });
         })
         .catch(function (error) {
             loading = false
@@ -153,7 +175,7 @@ function forgetPass() {
         document.getElementById('ref').classList.add('refvisible')
     })
 }
-function refClick(){
+function refClick() {
     document.getElementById('forgetpass').innerHTML = "Forgot Password?"
     document.getElementById('ref').classList.remove('refvisible')
 }
@@ -179,7 +201,6 @@ setInterval(function () {
         document.getElementById('loader').classList.remove('loader-active')
     }
 }, 100)
-
 //HAMBURGER AND THEME
 let navbarOpen = false
 function toggleMenu() {

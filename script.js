@@ -106,15 +106,15 @@ function login(event) {
     loading = true
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
-    let localUser = JSON.parse(localStorage.getItem(`${user.uid}_data`))
-    if (!localUser) {
-        localUser = {
-            last_login: true
-        }
-    }
     auth.signInWithEmailAndPassword(email, password)
         .then(function () {
             let user = auth.currentUser
+            let localUser = JSON.parse(localStorage.getItem(`${user.uid}_data`))
+            if (!localUser) {
+                localUser = {
+                    last_login: true
+                }
+            }
             if (user.emailVerified) {
                 const usersRef = database.ref("users");
                 if (!localUser.last_login) {

@@ -84,7 +84,7 @@ function register(event) {
                 account_type: "user"
             }
             let user = auth.currentUser;
-            localStorage.setItem("user_data", JSON.stringify(localUser))
+            localStorage.setItem(`${user.uid}_data`, JSON.stringify(localUser))
             user.sendEmailVerification();
             alert("Email verification has been sent!. Please verify.")
             loading = false
@@ -106,7 +106,7 @@ function login(event) {
     loading = true
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
-    let localUser = JSON.parse(localStorage.getItem("user_data"))
+    let localUser = JSON.parse(localStorage.getItem(`${user.uid}_data`))
     if (!localUser) {
         localUser = {
             last_login: true
@@ -120,7 +120,7 @@ function login(event) {
                 if (!localUser.last_login) {
                     usersRef.child(user.uid).set(localUser)
                         .then(() => {
-                            localStorage.removeItem('user_data')
+                            localStorage.removeItem(`${user.uid}_data`)
                         })
                         .catch((error) => {
                             alert(`Error saving data: ${error.message}`)

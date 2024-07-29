@@ -18,7 +18,13 @@
   padding: 0px;
   transition: all ease-in-out 0.2s;
 }
-
+a{
+  text-decoration: none;
+  color: var(--colorPrimary);
+}
+i:hover{
+  color: var(--colorControlHover);
+}
 .dark {
   --colorPrimary: #76ABAE;
   --colorControl: #EEEEEE;
@@ -28,7 +34,7 @@
   --btn-border: #35374B;
   --logo-color: white;
   --imgURL: url(images/portfolio-preview-dark.png);
-  background-color: black;
+  background-color: var(--link-color);
   color: white;
 }
 

@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 :root {
-  --colorPrimary: #00A9FF;
-  --colorControl: #89CFF3;
-  --colorControlHover: #A0E9FF;
+  --colorPrimary: #0673fa;
+  --colorControl: #1bb3ff;
+  --colorControlHover: #1593f6;
   --colorLight: #CDF5FD;
   --link-color: white;
   --img-border: var(--colorPrimary);
@@ -26,11 +26,11 @@ i:hover{
   color: var(--colorControlHover);
 }
 .dark {
-  --colorPrimary: #76ABAE;
-  --colorControl: #EEEEEE;
-  --colorControlHover: rgb(213, 255, 128);
+  --colorPrimary: rgb(224, 232, 0);
+  --colorControl: #737ddc;
+  --colorControlHover: rgb(227, 195, 9);
   --colorLight: #31363F;
-  --link-color: #222831;
+  --link-color: rgb(11, 11, 37);
   --btn-border: #35374B;
   --logo-color: white;
   --imgURL: url(images/portfolio-preview-dark.png);
@@ -175,7 +175,7 @@ header {
   bottom: 25vh;
   border-radius: 30px;
   padding: 10px 0px;
-  background-color: white;
+  background-color: var(--link-color);
   box-shadow: 0px 0px 10px var(--colorPrimary);
 }
 

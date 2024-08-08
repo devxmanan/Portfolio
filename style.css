@@ -3,10 +3,10 @@
 
 :root {
   --colorPrimary: #0673fa;
-  --colorControl: #1bb3ff;
+  --colorControl: #e2f6ff;
   --colorControlHover: #1593f6;
   --colorLight: #CDF5FD;
-  --link-color: white;
+  --link-color: rgba(255, 255, 255, 0.911);
   --img-border: var(--colorPrimary);
   --btn-border: rgb(47, 157, 197);
   --logo-color: black;
@@ -28,10 +28,10 @@ i:hover{
 }
 .dark {
   --colorPrimary: rgb(224, 232, 0);
-  --colorControl: #737ddc;
+  --colorControl: #000746;
   --colorControlHover: rgb(227, 195, 9);
   --colorLight: #31363F;
-  --link-color: rgb(11, 11, 37);
+  --link-color: rgba(11, 11, 37, 0.934);
   --btn-border: #35374B;
   --logo-color: white;
   --imgURL: url(images/portfolio-preview-dark.png);
@@ -264,7 +264,7 @@ header {
 }
 
 .btn:hover {
-  background-color: var(--colorControl);
+  background-color: var(--colorControlHover);
   color: var(--colorPrimary);
 }
 
@@ -315,6 +315,7 @@ header {
   padding: 30px 0px;
   justify-content: center;
   align-items: center;
+  background-color: var(--link-color);
 }
 
 

@@ -2,14 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 :root {
-  --colorPrimary: #0673fa;
+  --colorPrimary: #2E51ED;
   --colorControl: #e2f6ff;
+  --selection:#2e51ed55;
   --colorControlHover: #1593f6;
   --colorLight: #CDF5FD;
   --link-color: rgba(255, 255, 255, 0.911);
   --img-border: var(--colorPrimary);
-  --btn-border: rgb(47, 157, 197);
-  --logo-color: black;
+  --btn-border: rgb(34, 0, 224);
+  --logo-color: #292d32;
   --imgURL: url(images/portfolio-preview.png);
 }
 
@@ -27,8 +28,9 @@ i:hover{
   color: var(--colorControlHover);
 }
 .dark {
-  --colorPrimary: rgb(224, 232, 0);
-  --colorControl: #000746;
+  --colorPrimary: #32E6E2;
+  --colorControl: #1b2058;
+  --selection:#32e6e255;
   --colorControlHover: rgb(227, 195, 9);
   --colorLight: #31363F;
   --link-color: rgba(11, 11, 37, 0.934);
@@ -48,8 +50,8 @@ body {
 }
 
 ::selection {
-  background-color: var(--colorPrimary);
-  color: var(--link-color);
+  background-color: var(--selection);
+  color: var(--colorPrimary);
 }
 
 :active {
@@ -74,7 +76,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--colorControl);
+  background: var(--colorControlHover);
 }
 
 .loading {

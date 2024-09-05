@@ -4,7 +4,7 @@
 :root {
   --colorPrimary: #2E51ED;
   --colorControl: #e2f6ff;
-  --selection:#2e51ed55;
+  --selection: #2e51ed55;
   --colorControlHover: #1593f6;
   --colorLight: #CDF5FD;
   --link-color: rgba(255, 255, 255, 0.911);
@@ -20,17 +20,20 @@
   transition: all ease-in-out 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
-a{
+
+a {
   text-decoration: none;
   color: var(--colorPrimary);
 }
-i:hover{
+
+i:hover {
   color: var(--colorControlHover);
 }
+
 .dark {
   --colorPrimary: #32E6E2;
   --colorControl: #1b2058;
-  --selection:#32e6e255;
+  --selection: #32e6e255;
   --colorControlHover: rgb(227, 195, 9);
   --colorLight: #31363F;
   --link-color: rgba(11, 11, 37, 0.934);
@@ -100,7 +103,8 @@ body {
   border-radius: 50%;
   animation: spin 2s linear infinite;
 }
-.loader-active{
+
+.loader-active {
   display: flex;
 }
 
@@ -108,6 +112,7 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(1440deg);
   }
@@ -251,23 +256,19 @@ header {
 
 .btn {
   background-color: var(--colorPrimary);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 100px;
-  font-size: large;
-  border: 2px solid var(--btn-border);
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
+  width: 100%;
+  margin-top: 10px;
+  color: var(--colorLight);
+  font-weight: bold;
   cursor: pointer;
-  margin: 10px;
-  width: inherit;
-}
-
-.btn a {
-  color: var(--link-color);
+  font-size: large;
 }
 
 .btn:hover {
   background-color: var(--colorControlHover);
-  color: var(--colorPrimary);
 }
 
 .cv-btn {
@@ -278,6 +279,21 @@ header {
   border-radius: 5px;
   margin: 0px 5px;
   cursor: pointer;
+}
+
+#btn4 {
+  background-color: var(--colorPrimary);
+  border: none;
+  width: 85vw;
+  padding: 10px;
+  border-radius: 4px;
+  color: var(--colorLight);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btn4:hover {
+  background-color: var(--colorControlHover);
 }
 
 .cv-btn:hover {
@@ -349,6 +365,7 @@ header {
 #download-cv2 {
   display: none;
 }
+
 
 .dp {
   width: 30vw;
@@ -628,21 +645,25 @@ button[type=submit]:hover {
   border-color: var(--colorPrimary);
   color: var(--logo-color);
 }
-.passAndRefresh{
+
+.passAndRefresh {
   display: flex;
   justify-content: space-between;
   margin: 5px 0px;
   padding: 0px 8px;
   align-items: center;
 }
-.ref{
+
+.ref {
   font-size: medium;
   cursor: pointer;
   display: none;
 }
-.refvisible{
+
+.refvisible {
   display: block;
 }
+
 #forgetpass {
   color: red;
   font-size: small;

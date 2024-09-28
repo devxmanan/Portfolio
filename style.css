@@ -21,15 +21,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-a {
-  text-decoration: none;
-  color: var(--colorPrimary);
-}
-
-i:hover {
-  color: var(--colorControlHover);
-}
-
 .dark {
   --colorPrimary: #32E6E2;
   --colorControl: #1b2058;
@@ -44,12 +35,19 @@ i:hover {
   color: white;
 }
 
+a {
+  text-decoration: none;
+  color: var(--colorPrimary);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Rubik', sans-serif;
+  max-width: 1640px;
+  margin: 0 auto;
 }
 
 ::selection {
@@ -123,6 +121,7 @@ header {
   align-items: center;
   /* border: 2px solid blue; */
   height: 50px;
+  justify-content: space-between;
   position: sticky;
   top: 0px;
   box-shadow: 5px 0px 10px var(--colorControl);
@@ -141,7 +140,7 @@ header {
   display: flex;
   align-items: baseline;
   /* border: 2px solid green; */
-  width: 20vw;
+  width: 20%;
   padding: 0px 20px;
   text-decoration: none;
   color: var(--logo-color);
@@ -152,7 +151,7 @@ header {
 }
 
 .nav {
-  width: 70vw;
+  width: 70%;
 }
 
 .sidebar {
@@ -280,13 +279,15 @@ header {
   margin: 0px 5px;
   cursor: pointer;
 }
-
+.projects a {
+  width: 90%;
+}
 #btn4 {
   background-color: var(--colorPrimary);
   border: none;
-  width: 85vw;
   padding: 10px;
   border-radius: 4px;
+  width: 100%;
   color: var(--colorLight);
   font-weight: bold;
   cursor: pointer;
@@ -321,14 +322,14 @@ header {
 }
 
 .divider .bar {
-  width: 85vw;
+  width: 85%;
   background-color: var(--colorPrimary);
   height: 3px;
 }
 
 .home {
   display: flex;
-  font-size: 3vw;
+  font-size: 36px;
   z-index: -1;
   padding: 30px 0px;
   justify-content: center;
@@ -340,12 +341,11 @@ header {
 
 .myinfo {
   /* border: 2px solid red; */
-  width: 55vw;
+  width: 55%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 40px;
-  text-align: justify;
 }
 
 .animate {
@@ -358,7 +358,7 @@ header {
   }
 
   to {
-    font-size: 6vw;
+    font-size: 72px;
   }
 }
 
@@ -368,8 +368,8 @@ header {
 
 
 .dp {
-  width: 30vw;
-  height: 35.5vw;
+  width: 30%;
+  height: 35.5%;
   display: flex;
   align-items: center;
   background-color: var(--colorPrimary);
@@ -377,7 +377,7 @@ header {
 }
 
 .dp img {
-  width: 30vw;
+  width: 100%;
   border-radius: 0% 0% 35% 65% / 75% 39% 61% 25%;
 }
 
@@ -387,33 +387,39 @@ section {
   padding: 60px 0px;
   font-size: 1.5em;
   background-color: var(--link-color);
-  /* border: 2px solid blue; */
+  border: 2px solid blue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 }
 
 section .container {
   display: flex;
-  margin-top: 30px;
   /* border: 2px solid red; */
   justify-content: center;
+  /* box-shadow: 1px 1px 5px var(--colorPrimary); */
+  padding: 2.5%;
+  border-radius: 8px;
+  gap: 10px;
 }
 
 section .info {
-  /* border: 2px solid green; */
-  width: 40vw;
-  text-align: justify;
-  padding: 30px 15px;
-
+  
+  width: 45%;
+  text-align: left;
 }
 
 section .details {
-  width: 40vw;
+  width: 45%;
   /* border: 2px solid black; */
   text-align: justify;
   padding: 30px 15px;
 }
 
 section .details img {
-  width: 25vw;
+  width: 50%;
   border-radius: 10px;
   box-shadow: 2px 2px 10px var(--colorPrimary);
 }
@@ -565,7 +571,7 @@ section .details img {
 }
 
 #projects-container2 img {
-  width: 15vw;
+  width: 300px;
 }
 
 .small-container {
@@ -600,7 +606,8 @@ section .details img {
 form {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 70vw;
+  max-width: 480px;
   background-color: var(--colorLight);
   padding: 30px;
   border-radius: 20px;
@@ -683,6 +690,18 @@ button[type=submit]:hover {
   color: var(--logo-color);
 }
 
+
+.signup,
+.login,
+.Contact,
+.account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 170px);
+}
+
 /* footer */
 footer {
   background-color: var(--colorPrimary);
@@ -692,6 +711,7 @@ footer {
 }
 
 @media only screen and (max-width: 700px) {
+
   .sidebar {
     flex-direction: column;
     position: fixed;
@@ -747,6 +767,10 @@ footer {
     width: 50vw;
 
   }
+  
+  .themeBtn:hover {
+    transform: translateY(0px);
+  }
 
   #download-cv1 {
     display: none;
@@ -782,17 +806,9 @@ footer {
     align-items: center;
     font-size: 6vw;
   }
-
-  .home .dp {
-    height: 83vw;
-    width: 70vw;
-    margin: 30px 0px;
+  .home .dp{
+  margin: 30px 0px;
   }
-
-  .home .dp img {
-    width: 70vw;
-  }
-
   section .container {
     flex-direction: column;
     align-items: center;
@@ -806,13 +822,11 @@ footer {
   }
 
   section .details {
-    width: 80vw;
+    width: 90%;
     padding: 0px;
+    margin-bottom: 10px;
   }
 
-  section .details img {
-    width: 60vw;
-  }
 
   .small-container {
     width: 60vw;
@@ -840,27 +854,8 @@ footer {
   #projects-container2 img {
     width: 30vw;
   }
-
-  .btn {
-    width: 50vw;
-  }
-
+  
   #btn5 {
     margin-top: 30px;
-  }
-
-  .signup,
-  .login,
-  .Contact,
-  .account {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 249px);
-    align-items: center;
-    justify-content: center;
-  }
-
-  form {
-    width: 80vw;
   }
 }

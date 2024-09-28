@@ -180,7 +180,7 @@ function refClick() {
     document.getElementById('ref').classList.remove('refvisible')
 }
 //ON LOAD FUNCTION
-let currentTheme = localStorage.getItem("theme");
+let currentTheme = localStorage.getItem("theme") || "light";
 
 window.onload = load();
 function load() {

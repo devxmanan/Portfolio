@@ -818,7 +818,6 @@ footer {
     width: 90%;
     display: flex;
     flex-direction: column;
-    text-align: justify;
     align-items: center;
   }
 
@@ -828,6 +827,9 @@ footer {
     margin-bottom: 10px;
   }
 
+  section .details img{
+    width: 70%;
+  }
 
   .small-container {
     width: 60vw;

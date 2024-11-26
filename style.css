@@ -274,7 +274,8 @@ header {
   background-color: var(--colorControlHover);
 }
 
-.cv-btn {
+#btn1,
+#btn2 {
   width: max-content;
   background-color: var(--link-color);
   padding: 3px;
@@ -284,7 +285,7 @@ header {
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
-  font-family: "Rubik" ,sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .projects a {
@@ -306,11 +307,12 @@ header {
   background-color: var(--colorControlHover);
 }
 
-.cv-btn:hover {
+#btn1:hover,
+#btn2:hover {
   background-color: var(--colorLight);
 }
 
-.cv-btn a {
+#btn1 a {
   text-decoration: none;
   color: var(--colorPrimary);
 }
@@ -319,6 +321,13 @@ header {
   font-size: large;
   font-weight: bold;
   padding: 3px 5px;
+  border-color: white;
+  background-color: transparent;
+}
+
+#btn2 a {
+  text-decoration: none;
+  color: white;
 }
 
 .--colorPrimary {
@@ -387,13 +396,7 @@ header {
 }
 
 
-.cv-btn:nth-child(1) {
-  border-color: white;
-  background-color: transparent;
-}
-.cv-btn:nth-child(1) a{
-  color: white;
-}
+
 #download-cv2 {
   display: none;
 }
@@ -818,7 +821,8 @@ footer {
     width: 90vw;
     text-align: center;
   }
-  .myinfo h1{
+
+  .myinfo h1 {
     font-size: 2.5rem;
   }
 

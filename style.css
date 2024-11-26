@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+
 
 :root {
   --colorPrimary: #2E51ED;
@@ -12,6 +14,7 @@
   --btn-border: rgb(34, 0, 224);
   --logo-color: #292d32;
   --imgURL: url(images/portfolio-preview.png);
+  --canvas-foreground: rgba(255, 255, 255, 0.247);
 }
 
 * {
@@ -30,6 +33,7 @@
   --link-color: rgba(11, 11, 37, 0.934);
   --btn-border: #35374B;
   --logo-color: white;
+  --canvas-foreground: rgba(11, 11, 37, 0.247);
   --imgURL: url(images/portfolio-preview-dark.png);
   background-color: var(--link-color);
   color: white;
@@ -278,10 +282,15 @@ header {
   border-radius: 5px;
   margin: 0px 5px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Rubik" ,sans-serif;
 }
+
 .projects a {
   width: 90%;
 }
+
 #btn4 {
   background-color: var(--colorPrimary);
   border: none;
@@ -327,25 +336,40 @@ header {
   height: 3px;
 }
 
-.home {
+#home canvas {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 50;
+}
+
+#home {
+  touch-action: pan-up;
   display: flex;
   font-size: 36px;
   z-index: -1;
   padding: 30px 0px;
   justify-content: center;
   align-items: center;
-  background-color: var(--link-color);
+  /* background-color: var(--canvas-foreground); */
+  color: white;
 }
 
 
 
 .myinfo {
   /* border: 2px solid red; */
-  width: 55%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 40px;
+
+}
+
+.myinfo h1 {
+  font-family: "Freehand", sans-serif;
+  transform: rotate(-15deg);
 }
 
 .animate {
@@ -362,6 +386,14 @@ header {
   }
 }
 
+
+.cv-btn:nth-child(1) {
+  border-color: white;
+  background-color: transparent;
+}
+.cv-btn:nth-child(1) a{
+  color: white;
+}
 #download-cv2 {
   display: none;
 }
@@ -369,16 +401,18 @@ header {
 
 .dp {
   width: 30%;
-  height: 35.5%;
+  height: 630px;
   display: flex;
   align-items: center;
-  background-color: var(--colorPrimary);
-  border-radius: 71% 29% 35% 65% / 75% 39% 61% 25%;
+  justify-content: center;
+  /* background-color: var(--colorPrimary); */
+  /* border-radius: 71% 29% 35% 65% / 75% 39% 61% 25%; */
 }
 
 .dp img {
-  width: 100%;
-  border-radius: 0% 0% 35% 65% / 75% 39% 61% 25%;
+  width: 80%;
+  /* border-radius: 0% 0% 35% 65% / 75% 39% 61% 25%; */
+  border-radius: 50%;
 }
 
 /* skills section*/
@@ -405,7 +439,7 @@ section .container {
 }
 
 section .info {
-  
+
   width: 45%;
   text-align: left;
 }
@@ -766,7 +800,7 @@ footer {
     width: 50vw;
 
   }
-  
+
   .themeBtn:hover {
     transform: translateY(0px);
   }
@@ -784,6 +818,9 @@ footer {
     width: 90vw;
     text-align: center;
   }
+  .myinfo h1{
+    font-size: 2.5rem;
+  }
 
   .animate {
     animation: animate-name 0.7s 0.3s;
@@ -799,16 +836,22 @@ footer {
     }
   }
 
-  .home {
+  #home {
     flex-direction: column;
     text-align: center;
     align-items: center;
     font-size: 6vw;
+    min-height: calc(100vh - 50px);
   }
-  .home .dp{
-  margin: 30px 0px;
-  width: 80%;
+
+  .home .dp {
+    margin: 30px 0px;
+    height: auto;
+    width: 300px;
+    position: relative;
+    bottom: 20px;
   }
+
   section .container {
     flex-direction: column;
     align-items: center;
@@ -827,7 +870,7 @@ footer {
     margin-bottom: 10px;
   }
 
-  section .details img{
+  section .details img {
     width: 70%;
   }
 
@@ -857,7 +900,7 @@ footer {
   #projects-container2 img {
     width: 30vw;
   }
-  
+
   #btn5 {
     margin-top: 30px;
   }
